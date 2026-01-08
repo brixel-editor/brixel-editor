@@ -345,6 +345,11 @@
   "BKY_ESP32CAM_SETUP_TOOLTIP": "Connects to WiFi and initializes camera. JPEG Quality: 10-63 (lower is better).",
   "BKY_ESP32CAM_WIFI_CONFIG": "📡 WiFi Setup SSID %1 Password %2",
   "BKY_ESP32CAM_WIFI_CONFIG_TOOLTIP": "Sets SSID and password for WiFi connection.",
+  "BKY_ESP32S3CAM_DECLARE": "📷 When ESP32 S3 CAM Board Starts Up",
+  "BKY_ESP32S3CAM_DECLARE_TOOLTIP": "Declares libraries and variables for ESP32 S3 CAM. (Freenove ESP32-S3 CAM pinmap)",
+  "BKY_ESP32S3CAM_LABEL_SETUP": "⚙️ ESP32 S3 CAM Setup",
+  "BKY_ESP32S3CAM_SETUP": "📷 S3 Camera Init Framesize %1 JPEG Quality %2 Brightness %3 Contrast %4 Saturation %5",
+  "BKY_ESP32S3CAM_SETUP_TOOLTIP": "Connects to WiFi and initializes ESP32 S3 camera. Auto PSRAM detection and optimization. JPEG Quality: 10-63 (lower is better), Brightness/Contrast/Saturation: -2 to 2.",
   "BKY_FAST_SEARCH": "Fast Search",
   "BKY_FILE_NAME_PLACEHOLDER": "File name",
   "BKY_FILTER_CLEAR": "Clear Mode",
@@ -380,6 +385,8 @@
   "BKY_GET_IMAGE": "Get Image",
   "BKY_GO_TO_AI_ROBOT_SCRATCH": "🤖 Go to AI*ROBOT Scratch_Right_Click",
   "BKY_GO_TO_AI_ROBOT_SCRATCH_TOOLTIP": "Right-click block and select 'Help' to control hardware with AI in AI*ROBOT Scratch.",
+  "BKY_GO_TO_BOWERBIRD_PRO": "🐦 Go to Bowerbird Pro_Right_Click",
+  "BKY_GO_TO_BOWERBIRD_PRO_TOOLTIP": "Right-click block and select 'Help' to use Bowerbird Pro AI image analysis tool.",
   "BKY_GO_TO_K12_PROJECTHUB": "🤖 Go to K12_ProjectHub_Right_Click",
   "BKY_GO_TO_K12_PROJECTHUB_TOOLTIP": "Right-click block and select 'Help' to explore various examples in k12-projecthub.",
   "BKY_GPS_ALT": "Altitude(m)",
@@ -1269,6 +1276,7 @@
   "blockModeBtn": "Block Coding",
   "blocklyHeaderTitle": "🧩 Block Coding Editor",
   "boardEsp32": "ESP32",
+  "boardEsp32cam": "ESP32-CAM",
   "boardEsp32c3": "ESP32-C3",
   "boardEsp32s2": "ESP32-S2",
   "boardEsp32s3": "ESP32-S3",
@@ -1425,5 +1433,8 @@
   "websocket_connected": "🌐 Connected to PC Agent.",
   "websocket_disconnected": "🔌 Disconnected from PC Agent.",
   "websocket_error": "❌ PC Agent connection error occurred.",
-  "websocket_unavailable": "⚠️ Real-time communication is unavailable."
+  "websocket_unavailable": "⚠️ Real-time communication is unavailable.",
+  "memory_usage": " (Memory {percent}% used)",
+  "unknown": "Unknown",
+  "unknown_error": "Unknown error"
 }
