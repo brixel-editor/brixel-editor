@@ -18,16 +18,38 @@ window.IDEUtils = {
     },
 
     /**
-     * 하단 콘솔 패널에 타임스탬프와 함께 로그 메시지를 출력합니다.
+     * 하단 콘솔 패널에 로그 메시지를 출력합니다.
      * @param {string} message - 출력할 메시지
-     * @param {boolean} isRaw - 타임스탬프 없이 원본 그대로 출력할지 여부
+     * @param {boolean} isRaw - 원본 그대로 출력할지 여부 (현재는 사용하지 않음)
      */
     logToConsole(message, isRaw = false) {
         const consoleEl = document.getElementById('consoleOutput');
         if (!consoleEl) return;
 
-        const timestamp = new Date().toLocaleTimeString();
-        consoleEl.textContent += isRaw ? message : `[${timestamp}] ${message}\n`;
+        // 진행율 메시지 감지 (같은 줄에서 업데이트)
+        const isProgress = message.includes('진행:') ||
+                          message.includes('Progress') ||
+                          message.toLowerCase().includes('progress') ||
+                          (message.includes('%') && (message.includes('컴파일') || message.includes('업로드') || message.includes('Compiling') || message.includes('Uploading')));
+
+        if (isProgress) {
+            // 진행율 메시지: 마지막 줄을 업데이트 (줄바꿈 없음)
+            const lines = consoleEl.textContent.split('\n');
+            const lastLine = lines[lines.length - 1] || '';
+
+            if (lastLine.includes('진행:') || lastLine.includes('Progress') || lastLine.toLowerCase().includes('progress')) {
+                // 마지막 줄 교체
+                lines[lines.length - 1] = message;
+                consoleEl.textContent = lines.join('\n');
+            } else {
+                // 새 진행율 줄 추가
+                consoleEl.textContent += (consoleEl.textContent ? '\n' : '') + message;
+            }
+        } else {
+            // 일반 로그: 줄바꿈하여 추가
+            consoleEl.textContent += message + '\n';
+        }
+
         consoleEl.scrollTop = consoleEl.scrollHeight;
     },
 

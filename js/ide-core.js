@@ -348,16 +348,31 @@ class IntegratedArduinoIDE {
      * IDE를 정리하고 리소스를 해제합니다.
      */
     cleanup() {
-        if (window.IDEServerComm) {
-            window.IDEServerComm.closeWebSocket();
+        try {
+            if (window.IDEServerComm) {
+                window.IDEServerComm.closeWebSocket();
+            }
+            if (window.IDEEditors && window.IDEEditors.workspace) {
+                try {
+                    // workspace가 이미 dispose되지 않았는지 확인
+                    if (!window.IDEEditors.workspace.isDisposed) {
+                        window.IDEEditors.workspace.dispose();
+                    }
+                } catch (e) {
+                    console.warn('Workspace dispose 경고:', e.message);
+                }
+            }
+            if (window.IDEEditors && window.IDEEditors.monacoEditor) {
+                try {
+                    window.IDEEditors.monacoEditor.dispose();
+                } catch (e) {
+                    console.warn('Monaco editor dispose 경고:', e.message);
+                }
+            }
+            console.log('IDE 정리 완료');
+        } catch (error) {
+            console.error('IDE 정리 중 오류:', error);
         }
-        if (window.IDEEditors && window.IDEEditors.workspace) {
-            window.IDEEditors.workspace.dispose();
-        }
-        if (window.IDEEditors && window.IDEEditors.monacoEditor) {
-            window.IDEEditors.monacoEditor.dispose();
-        }
-        console.log('IDE 정리 완료');
     }
 }
 
@@ -379,8 +394,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // 전역 IDE 인스턴스 생성
             window.arduinoIDE = new IntegratedArduinoIDE();
             
-            // 브라우저 종료 시 정리 작업
-            window.addEventListener('beforeunload', () => {
+            // 브라우저 종료 시 정리 작업 (다운로드 중에는 실행하지 않음)
+            window.addEventListener('beforeunload', (e) => {
+                // 다운로드 중에는 cleanup 실행하지 않음
+                if (window.isDownloading) {
+                    return;
+                }
                 if (window.arduinoIDE) {
                     window.arduinoIDE.cleanup();
                 }

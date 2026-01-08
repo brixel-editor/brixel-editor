@@ -130,6 +130,18 @@ window.IDEI18n = {
                 // RTL 언어 변경 시 Monaco 에디터 방향성 재설정
                 this.ensureMonacoLTRDirection();
 
+                // PC 에이전트에 언어 변경 알림
+                if (window.IDEServerComm && window.IDEServerComm.websocket) {
+                    try {
+                        window.IDEServerComm.websocket.send(JSON.stringify({
+                            type: 'language-change',
+                            payload: { language: newLanguage }
+                        }));
+                    } catch (e) {
+                        console.warn('PC 에이전트 언어 변경 알림 실패:', e);
+                    }
+                }
+
                 window.IDEUtils.logToConsole(
                     this.getMsg('language_change_success', '언어가 {lang}로 변경되었습니다.')
                         .replace('{lang}', newLanguage)

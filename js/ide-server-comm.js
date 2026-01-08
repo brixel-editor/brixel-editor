@@ -150,20 +150,25 @@ window.IDEServerComm = {
             if (result.success) {
                 this.sketchId = result.sketchId;
                 this.compiledBoard = result.board;
-                
+
                 if (uploadBtn) uploadBtn.disabled = false;
-                
-                const sizeText = result.size ? window.IDEUtils.formatBytes(result.size) : '알 수 없음';
-                const memoryText = result.memoryUsage ? ` (메모리 ${result.memoryUsage}% 사용)` : '';
-                
+
+                const sizeText = result.size ? window.IDEUtils.formatBytes(result.size) :
+                    (window.IDEI18n ? window.IDEI18n.getMsg('unknown', '알 수 없음') : '알 수 없음');
+                const memoryText = result.memoryUsage ?
+                    (window.IDEI18n ? window.IDEI18n.getMsg('memory_usage', ' (메모리 {percent}% 사용)') : ' (메모리 {percent}% 사용)')
+                        .replace('{percent}', result.memoryUsage) : '';
+
                 this.logAndSend(
                     (window.IDEI18n ? window.IDEI18n.getMsg('agent_compile_success', '✅ 컴파일 완료! 크기: {size}') : '✅ 컴파일 완료! 크기: {size}')
                         .replace('{size}', sizeText + memoryText)
                 );
             } else {
+                const errorMsg = result.error ||
+                    (window.IDEI18n ? window.IDEI18n.getMsg('unknown_error', '알 수 없는 오류') : '알 수 없는 오류');
                 this.logAndSend(
                     (window.IDEI18n ? window.IDEI18n.getMsg('agent_compile_fail', '❌ 컴파일 실패: {errorMsg}') : '❌ 컴파일 실패: {errorMsg}')
-                        .replace('{errorMsg}', result.error || '알 수 없는 오류')
+                        .replace('{errorMsg}', errorMsg)
                 );
             }
         } catch (error) {
@@ -458,8 +463,17 @@ window.IDEServerComm = {
      */
     closeWebSocket() {
         if (this.websocket) {
-            this.websocket.close();
-            this.websocket = null;
+            try {
+                // readyState가 OPEN(1) 또는 CONNECTING(0)인 경우에만 close 호출
+                if (this.websocket.readyState === WebSocket.OPEN ||
+                    this.websocket.readyState === WebSocket.CONNECTING) {
+                    this.websocket.close();
+                }
+            } catch (error) {
+                console.warn('WebSocket 종료 경고:', error.message);
+            } finally {
+                this.websocket = null;
+            }
         }
     },
 
