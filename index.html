@@ -467,7 +467,7 @@
                 </div>
             </div>
                         <!-- 실시간 로그 콘솔 -->
-            <div class="panel-section">
+            <div class="panel-section console-section">
                 <h3 data-i18n="consoleHeader">📺 실시간 로그</h3>
                 <div class="console-panel">
                     <div class="console-output" id="consoleOutput"></div>
@@ -531,35 +531,40 @@
     document.addEventListener('DOMContentLoaded', function() {
         // 다운로드 파일 정보
         const downloadFiles = {
-        win: {
-            // 띄어쓰기를 %20으로 변경
-            url: 'https://www.gorillacell.kr/webide/download_agent/Arduino%20Local%20Agent%20Setup%202.6.0.exe',
-            filename: 'Arduino Local Agent Setup 2.6.0.exe'
-        },
-        mac: {
-            // 띄어쓰기를 %20으로 변경
-            url: 'https://www.gorillacell.kr/webide/download_agent/Arduino%20Local%20Agent-2.6.0-arm64.dmg', 
-            filename: 'Arduino Local Agent-2.6.0-arm64.dmg'
-        },
-        linux: {
-            // 띄어쓰기를 %20으로 변경
-            url: 'https://www.gorillacell.kr/webide/download_agent/Arduino%20Local%20Agent.tar.gz',
-            filename: 'Arduino Local Agent.tar.gz'
-        }
+            win: {
+                url: 'https://github.com/brixel-editor/brixel-editor.github.io/releases/download/2.6.0/BrixelLocalAgent_Setup_2.6.0_win.exe',
+                filename: 'BrixelLocalAgent_Setup_2.6.0_win.exe'
+            },
+            mac: {
+                url: 'https://github.com/brixel-editor/brixel-editor.github.io/releases/download/2.6.0/BrixelLocalAgent_Setup_2.6.0_macOS.dmg', 
+                filename: 'BrixelLocalAgent_Setup_2.6.0_macOS.dmg'
+            },
+            linux: {
+                url: 'https://www.gorillacell.kr/webide/download_agent/Arduino Local Agent.tar.gz',
+                filename: 'Arduino Local Agent.tar.gz'
+            }
         };
 
         const osSelect = document.getElementById('agentOsSelect');
         const downloadBtn = document.getElementById('downloadAgentBtn');
 
         function downloadFile(url, filename) {
+            // 다운로드 중 cleanup 방지를 위한 플래그 설정
+            window.isDownloading = true;
+
             const link = document.createElement('a');
             link.href = url;
             link.download = filename;
             link.style.display = 'none';
-            
+
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+
+            // 다운로드 완료 후 플래그 해제
+            setTimeout(() => {
+                window.isDownloading = false;
+            }, 500);
         }
 
         if (downloadBtn && osSelect) {
