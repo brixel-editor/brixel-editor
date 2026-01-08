@@ -5796,6 +5796,10 @@ Arduino.forBlock['go_to_ai_robot_scratch'] = function (block, generator) {
   // 바로가기 블록이므로 생성되는 코드는 없습니다.
   return '';
 };
+Arduino.forBlock['go_to_bowerbird_pro'] = function (block, generator) {
+  // 바로가기 블록이므로 생성되는 코드는 없습니다.
+  return '';
+};
 Arduino.forBlock['go_to_k12_projectHub'] = function (block, generator) {
   // 바로가기 블록이므로 생성되는 코드는 없습니다.
   return '';
@@ -6115,6 +6119,129 @@ Arduino.forBlock['esp32cam_led_control'] = function (block, generator) {
   var state = block.getFieldValue('STATE');
 
   var code = `  digitalWrite(4, ${state});  // ESP32-CAM 플래시 LED (GPIO 4)
+`;
+
+  return code;
+};
+
+// ============================================================================
+// ESP32 S3 CAM 전용 코드 생성기
+// ============================================================================
+
+// 7. ESP32 S3 CAM 선언부
+Arduino.forBlock['esp32s3cam_declare'] = function (block, generator) {
+  generator.definitions_['esp32s3cam_includes'] = `#include "esp_camera.h"
+#include <WiFi.h>
+#include <WiFiUdp.h>`;
+
+  generator.definitions_['esp32s3cam_pinmap'] = `
+// Freenove ESP32-S3 CAM (ESP32S3_EYE) 핀맵
+#define PWDN_GPIO_NUM     -1
+#define RESET_GPIO_NUM    -1
+#define XCLK_GPIO_NUM     15
+#define SIOD_GPIO_NUM      4
+#define SIOC_GPIO_NUM      5
+#define Y9_GPIO_NUM       16
+#define Y8_GPIO_NUM       17
+#define Y7_GPIO_NUM       18
+#define Y6_GPIO_NUM       12
+#define Y5_GPIO_NUM       10
+#define Y4_GPIO_NUM        8
+#define Y3_GPIO_NUM        9
+#define Y2_GPIO_NUM       11
+#define VSYNC_GPIO_NUM     6
+#define HREF_GPIO_NUM      7
+#define PCLK_GPIO_NUM     13`;
+
+  generator.definitions_['esp32s3cam_udp'] = `WiFiUDP udp;`;
+
+  return '';
+};
+
+// 8. ESP32 S3 CAM 초기화 (setup 안에 배치)
+Arduino.forBlock['esp32s3cam_setup'] = function (block, generator) {
+  var frameSize = block.getFieldValue('FRAME_SIZE');
+  var jpegQuality = generator.valueToCode(block, 'JPEG_QUALITY', Arduino.ORDER_ATOMIC) || '12';
+  var brightness = generator.valueToCode(block, 'BRIGHTNESS', Arduino.ORDER_ATOMIC) || '1';
+  var contrast = generator.valueToCode(block, 'CONTRAST', Arduino.ORDER_ATOMIC) || '1';
+  var saturation = generator.valueToCode(block, 'SATURATION', Arduino.ORDER_ATOMIC) || '0';
+
+  var code = `
+  Serial.begin(115200);
+
+  // LED 핀 초기화 (GPIO 4 - 플래시 LED)
+  pinMode(4, OUTPUT);
+  digitalWrite(4, LOW);  // 초기값: 꺼짐
+
+  // WiFi 연결
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\\nWi-Fi Connected!");
+  Serial.print("IP Address: ");
+  Serial.println(WiFi.localIP());
+
+  // ESP32 S3 카메라 설정
+  camera_config_t config;
+  config.ledc_channel = LEDC_CHANNEL_0;
+  config.ledc_timer = LEDC_TIMER_0;
+  config.pin_d0 = Y2_GPIO_NUM;
+  config.pin_d1 = Y3_GPIO_NUM;
+  config.pin_d2 = Y4_GPIO_NUM;
+  config.pin_d3 = Y5_GPIO_NUM;
+  config.pin_d4 = Y6_GPIO_NUM;
+  config.pin_d5 = Y7_GPIO_NUM;
+  config.pin_d6 = Y8_GPIO_NUM;
+  config.pin_d7 = Y9_GPIO_NUM;
+  config.pin_xclk = XCLK_GPIO_NUM;
+  config.pin_pclk = PCLK_GPIO_NUM;
+  config.pin_vsync = VSYNC_GPIO_NUM;
+  config.pin_href = HREF_GPIO_NUM;
+  config.pin_sscb_sda = SIOD_GPIO_NUM;
+  config.pin_sscb_scl = SIOC_GPIO_NUM;
+  config.pin_pwdn = PWDN_GPIO_NUM;
+  config.pin_reset = RESET_GPIO_NUM;
+  config.xclk_freq_hz = 20000000;
+  config.pixel_format = PIXFORMAT_JPEG;
+
+  // ESP32 S3 특화 설정
+  config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
+  config.fb_location = CAMERA_FB_IN_PSRAM;
+  config.frame_size = ${frameSize};
+  config.jpeg_quality = ${jpegQuality};
+  config.fb_count = 1;
+
+  // PSRAM 자동 감지 및 최적화
+  if(psramFound()){
+    Serial.println("PSRAM found!");
+    config.jpeg_quality = 10;
+    config.fb_count = 2;
+    config.grab_mode = CAMERA_GRAB_LATEST;
+  } else {
+    Serial.println("PSRAM not found, using DRAM");
+    config.frame_size = FRAMESIZE_SVGA;
+    config.fb_location = CAMERA_FB_IN_DRAM;
+  }
+
+  if (esp_camera_init(&config) != ESP_OK) {
+    Serial.println("Camera Init Failed");
+    return;
+  }
+
+  // 카메라 센서 설정
+  sensor_t * s = esp_camera_sensor_get();
+  if (s != NULL) {
+    s->set_brightness(s, ${brightness});  // -2 ~ 2
+    s->set_contrast(s, ${contrast});      // -2 ~ 2
+    s->set_saturation(s, ${saturation});  // -2 ~ 2
+    s->set_vflip(s, 1);                   // 수직 반전
+    s->set_hmirror(s, 1);                 // 수평 미러링 (좌우 반전 방지)
+  }
+
+  Serial.println("ESP32-S3 CAM Ready! Starting UDP streaming...");
 `;
 
   return code;

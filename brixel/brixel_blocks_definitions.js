@@ -5553,6 +5553,14 @@ function defineArduinoBlocks() {
             "helpUrl": "https://ai4coding.github.io/"
         },
         {
+            "type": "go_to_bowerbird_pro",
+            "message0": Blockly.Msg.BKY_GO_TO_BOWERBIRD_PRO || "🐦 Go to Bowerbird Pro",
+            "nextStatement": null,
+            "style": "event_blocks",
+            "tooltip": Blockly.Msg.BKY_GO_TO_BOWERBIRD_PRO_TOOLTIP || "Link to Bowerbird Pro AI image analysis tool.",
+            "helpUrl": "https://www.gorillacell.kr/bowerbird/"
+        },
+        {
             "type": "go_to_k12_projectHub",
             "message0": Blockly.Msg.BKY_GO_TO_K12_PROJECTHUB || "Go to K12 Project Hub",
             "nextStatement": null,
@@ -6183,6 +6191,75 @@ Blockly.Blocks['esp32cam_led_control'] = {
             "nextStatement": null,
             "colour": "#367E7F",
             "tooltip": Blockly.Msg.BKY_ESP32CAM_LED_CONTROL_TOOLTIP || "ESP32-CAM의 내장 플래시 LED를 켜거나 끕니다. (GPIO 4)",
+            "helpUrl": ""
+        });
+    }
+};
+
+// ============================================================================
+// ESP32 S3 CAM 전용 블록 정의
+// ============================================================================
+
+// 7. ESP32 S3 CAM 선언부 블록
+Blockly.Blocks['esp32s3cam_declare'] = {
+    init: function () {
+        this.jsonInit({
+            "type": "esp32s3cam_declare",
+            "message0": Blockly.Msg.BKY_ESP32S3CAM_DECLARE || "📷 ESP32 S3 CAM 보드가 시작되었을 때",
+            "nextStatement": null,
+            "style": "event_blocks",
+            "tooltip": Blockly.Msg.BKY_ESP32S3CAM_DECLARE_TOOLTIP || "ESP32 S3 CAM 사용을 위한 라이브러리와 변수를 선언합니다. (Freenove ESP32-S3 CAM 핀맵)",
+            "helpUrl": ""
+        });
+    }
+};
+
+// 8. ESP32 S3 CAM 초기화 블록
+Blockly.Blocks['esp32s3cam_setup'] = {
+    init: function () {
+        this.jsonInit({
+            "type": "esp32s3cam_setup",
+            "message0": Blockly.Msg.BKY_ESP32S3CAM_SETUP || "📷 S3 카메라 초기화 프레임크기 %1 JPEG품질 %2 밝기 %3 대비 %4 채도 %5",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "FRAME_SIZE",
+                    "options": [
+                        [Blockly.Msg.BKY_ESP32CAM_FRAMESIZE_QVGA || "QVGA (320x240)", "FRAMESIZE_QVGA"],
+                        [Blockly.Msg.BKY_ESP32CAM_FRAMESIZE_VGA || "VGA (640x480)", "FRAMESIZE_VGA"],
+                        [Blockly.Msg.BKY_ESP32CAM_FRAMESIZE_SVGA || "SVGA (800x600)", "FRAMESIZE_SVGA"],
+                        [Blockly.Msg.BKY_ESP32CAM_FRAMESIZE_XGA || "XGA (1024x768)", "FRAMESIZE_XGA"],
+                        [Blockly.Msg.BKY_ESP32CAM_FRAMESIZE_HD || "HD (1280x720)", "FRAMESIZE_HD"],
+                        [Blockly.Msg.BKY_ESP32CAM_FRAMESIZE_SXGA || "SXGA (1280x1024)", "FRAMESIZE_SXGA"],
+                        [Blockly.Msg.BKY_ESP32CAM_FRAMESIZE_UXGA || "UXGA (1600x1200)", "FRAMESIZE_UXGA"]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "JPEG_QUALITY",
+                    "check": "Number"
+                },
+                {
+                    "type": "input_value",
+                    "name": "BRIGHTNESS",
+                    "check": "Number"
+                },
+                {
+                    "type": "input_value",
+                    "name": "CONTRAST",
+                    "check": "Number"
+                },
+                {
+                    "type": "input_value",
+                    "name": "SATURATION",
+                    "check": "Number"
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "inputsInline": true,
+            "colour": "#367E7F",
+            "tooltip": Blockly.Msg.BKY_ESP32S3CAM_SETUP_TOOLTIP || "WiFi에 연결하고 ESP32 S3 카메라를 초기화합니다. PSRAM 자동 감지 및 최적화 적용. JPEG 품질은 10~63 (낮을수록 고품질), 밝기/대비/채도는 -2~2 범위입니다.",
             "helpUrl": ""
         });
     }

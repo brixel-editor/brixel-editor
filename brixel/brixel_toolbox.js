@@ -871,6 +871,17 @@ function generateToolbox(boardType = 'uno') {
             <block type="esp32cam_loop"></block>
             <sep gap="10"></sep>
             <block type="esp32cam_led_control"></block>
+            <sep gap="30"></sep>
+            <label text="${Blockly.Msg.BKY_ESP32S3CAM_LABEL_SETUP || '⚙️ ESP32 S3 CAM 연결 설정'}"></label>
+            <sep gap="10"></sep>
+            <block type="esp32s3cam_declare"></block>
+            <sep gap="10"></sep>
+            <block type="esp32s3cam_setup">
+                <value name="JPEG_QUALITY"><shadow type="math_number"><field name="NUM">12</field></shadow></value>
+                <value name="BRIGHTNESS"><shadow type="math_number"><field name="NUM">1</field></shadow></value>
+                <value name="CONTRAST"><shadow type="math_number"><field name="NUM">1</field></shadow></value>
+                <value name="SATURATION"><shadow type="math_number"><field name="NUM">0</field></shadow></value>
+            </block>
             <sep gap="10"></sep>
         </category>
 
@@ -881,6 +892,8 @@ function generateToolbox(boardType = 'uno') {
             <block type="custom_ad_block"></block>
             <sep gap="10"></sep>  
             <block type="go_to_ai_robot_scratch"></block>
+            <sep gap="10"></sep>
+            <block type="go_to_bowerbird_pro"></block>
             <sep gap="10"></sep>
             <block type="go_to_k12_projectHub"></block>
         </category>

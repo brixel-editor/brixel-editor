@@ -190,7 +190,13 @@ window.addEventListener('error', function(e) {
     if (e.message === 'Script error.' && e.lineno === 0) {
         return; // 로그하지 않음
     }
-    
+
+    // ResizeObserver 에러는 무해한 성능 경고이므로 무시
+    // Monaco Editor와 같은 복잡한 UI 컴포넌트에서 자주 발생
+    if (e.message && e.message.includes('ResizeObserver loop')) {
+        return; // 로그하지 않음
+    }
+
     // 실제 오류만 로깅
     console.error('전역 에러 발생:', {
         message: e.message,
