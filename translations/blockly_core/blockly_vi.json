@@ -316,5 +316,11 @@
   "VARIABLES_SET": "đặt %1 thành %2",
   "VARIABLES_SET_CREATE_GET": "Tạo 'lấy %1'",
   "VARIABLES_SET_HELPURL": "https://github.com/google/blockly/wiki/Variables#set",
-  "VARIABLES_SET_TOOLTIP": "Đặt biến này bằng đầu vào."
+  "VARIABLES_SET_TOOLTIP": "Đặt biến này bằng đầu vào.",
+  "BKY_ESP32CAM_FLIP": "📷 Cài đặt màn hình máy ảnh Loại %1 Bật %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "Lật hoặc phản chiếu hình ảnh máy ảnh.",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "Lật dọc",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "Gương ngang",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "Bật",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "Tắt"
 }

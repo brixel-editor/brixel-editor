@@ -12,7 +12,6 @@
   "COLOUR_RGB_RED": "빨강",
   "COLOUR_RGB_TITLE": "RGB 색",
   "COLOUR_RGB_TOOLTIP": "빨강, 초록, 파랑의 양을 지정하여 색을 만듭니다. 모든 값은 0과 100 사이여야 합니다.",
-
   "CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK": "반복 중단",
   "CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE": "다음 반복으로 계속",
   "CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK": "포함된 반복을 중단합니다.",
@@ -36,7 +35,6 @@
   "CONTROLS_IF_IF_TOOLTIP": "추가, 제거, 순서 변경하여 이 만약 블록을 재구성합니다.",
   "CONTROLS_IF_ELSEIF_TITLE_ELSEIF": "아니면 만약",
   "CONTROLS_IF_ELSE_TITLE_ELSE": "아니면",
-
   "CONTROLS_REPEAT_INPUT_DO": "실행",
   "CONTROLS_REPEAT_TITLE": "%1번 반복",
   "CONTROLS_REPEAT_TOOLTIP": "여러 명령을 여러 번 수행합니다.",
@@ -44,7 +42,6 @@
   "CONTROLS_WHILEUNTIL_OPERATOR_WHILE": "~인 동안 반복",
   "CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL": "값이 거짓인 동안, 몇 가지 명령을 수행합니다.",
   "CONTROLS_WHILEUNTIL_TOOLTIP_WHILE": "값이 참인 동안, 몇 가지 명령을 수행합니다.",
-
   "ADD_COMMENT": "주석 추가",
   "CANNOT_DELETE_VARIABLE_PROCEDURE": "'%1' 변수는 '%2' 함수의 정의 부분이므로 삭제할 수 없습니다.",
   "CHANGE_VALUE_TITLE": "값 변경:",
@@ -68,7 +65,6 @@
   "REDO": "다시 실행",
   "REMOVE_COMMENT": "주석 제거",
   "UNDO": "실행 취소",
-
   "LOGIC_BOOLEAN_FALSE": "거짓",
   "LOGIC_BOOLEAN_TRUE": "참",
   "LOGIC_BOOLEAN_TOOLTIP": "참 또는 거짓을 반환합니다.",
@@ -90,7 +86,6 @@
   "LOGIC_TERNARY_IF_FALSE": "거짓이면",
   "LOGIC_TERNARY_IF_TRUE": "참이면",
   "LOGIC_TERNARY_TOOLTIP": "\"테스트\"의 조건을 확인합니다. 조건이 참이면 \"참이면\" 값을 반환하고, 그렇지 않으면 \"거짓이면\" 값을 반환합니다.",
-
   "MATH_ADDITION_SYMBOL": "+",
   "MATH_ARITHMETIC_HELPURL": "",
   "MATH_ARITHMETIC_TOOLTIP_ADD": "두 수의 합을 반환합니다.",
@@ -189,7 +184,6 @@
   "MATH_TRIG_TOOLTIP_COS": "각도의 코사인 값을 반환합니다. (라디안이 아님)",
   "MATH_TRIG_TOOLTIP_SIN": "각도의 사인 값을 반환합니다. (라디안이 아님)",
   "MATH_TRIG_TOOLTIP_TAN": "각도의 탄젠트 값을 반환합니다. (라디안이 아님)",
-
   "NEW_COLOUR_VARIABLE": "색상 변수 만들기...",
   "NEW_COLOUR_VARIABLE_TITLE": "새 색상 변수 이름:",
   "NEW_NUMBER_VARIABLE": "숫자 변수 만들기...",
@@ -199,7 +193,6 @@
   "NEW_VARIABLE": "변수 만들기...",
   "NEW_VARIABLE_NAME": "변수 이름",
   "NEW_VARIABLE_TITLE": "새 변수 이름:",
-
   "PROCEDURES_ALLOW_STATEMENTS": "명령문 허용",
   "PROCEDURES_BEFORE_PARAMS": "매개변수:",
   "PROCEDURES_CALL_BEFORE_PARAMS": "매개변수:",
@@ -231,7 +224,6 @@
   "PROCEDURES_MUTATORARG_TOOLTIP": "함수에 입력을 추가합니다.",
   "PROCEDURES_MUTATORCONTAINER_TITLE": "매개 변수",
   "PROCEDURES_MUTATORCONTAINER_TOOLTIP": "이 함수의 매개 변수를 추가, 제거 또는 재정렬합니다.",
-
   "TEXT_APPEND_TITLE": "%1에 텍스트 %2 추가",
   "TEXT_APPEND_TOOLTIP": "변수 \"%1\"에 텍스트를 추가합니다.",
   "TEXT_APPEND_VARIABLE": "변수",
@@ -260,7 +252,6 @@
   "TEXT_TRIM_OPERATOR_BOTH": "양쪽 공백 제거",
   "TEXT_TRIM_OPERATOR_LEFT": "왼쪽 공백 제거",
   "TEXT_TRIM_OPERATOR_RIGHT": "오른쪽 공백 제거",
-
   "RENAME_VARIABLE": "'%1' 변수 이름 바꾸기",
   "RENAME_VARIABLE_MODAL_TITLE": "변수 이름 바꾸기",
   "RENAME_VARIABLE_TITLE": "모든 '%1' 변수의 이름을 다음으로 바꾸기:",
@@ -275,5 +266,11 @@
   "VARIABLES_SET_TOOLTIP": "이 변수를 입력과 같게 설정합니다.",
   "BKY_CONTROLS_IF_ELSEIF_TITLE_ELSEIF": "ELSEIF추가",
   "BKY_CONTROLS_IF_IF_TITLE_IF": "기존 IF문",
-  "BKY_CONTROLS_IF_ELSE_TITLE_ELSE": "ELSE추가"
+  "BKY_CONTROLS_IF_ELSE_TITLE_ELSE": "ELSE추가",
+  "BKY_ESP32CAM_FLIP": "📷 카메라 화면 설정 구분 %1 동작 %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "카메라 화면을 상하 반전하거나 좌우 거울모드로 설정합니다.",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "상하반전 (Vertical Flip)",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "좌우거울 (Horizontal Mirror)",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "켜기 (On)",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "끄기 (Off)"
 }

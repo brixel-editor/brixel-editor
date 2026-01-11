@@ -316,5 +316,11 @@
   "VARIABLES_SET": "تنظیم %1 به %2",
   "VARIABLES_SET_CREATE_GET": "ایجاد 'گرفتن %1'",
   "VARIABLES_SET_HELPURL": "https://github.com/google/blockly/wiki/Variables#set",
-  "VARIABLES_SET_TOOLTIP": "این متغیر را برابر با ورودی تنظیم می‌کند."
+  "VARIABLES_SET_TOOLTIP": "این متغیر را برابر با ورودی تنظیم می‌کند.",
+  "BKY_ESP32CAM_FLIP": "📷 تنظیمات صفحه دوربین نوع %1 فعال‌سازی %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "چرخش یا آینه‌ای کردن تصویر دوربین.",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "چرخش عمودی",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "آینه افقی",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "روشن",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "خاموش"
 }

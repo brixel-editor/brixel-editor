@@ -320,5 +320,11 @@
   "VARIABLES_SET": "sätt %1 till %2",
   "VARIABLES_SET_CREATE_GET": "Skapa 'hämta %1'",
   "VARIABLES_SET_HELPURL": "https://github.com/google/blockly/wiki/Variables#set",
-  "VARIABLES_SET_TOOLTIP": "Sätter denna variabel att vara lika med indatan."
+  "VARIABLES_SET_TOOLTIP": "Sätter denna variabel att vara lika med indatan.",
+  "BKY_ESP32CAM_FLIP": "📷 Kameraskärminställning Typ %1 Aktivera %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "Vänd eller spegla kamerabilden.",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "Vertikal Vändning",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "Horisontell Spegel",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "På",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "Av"
 }

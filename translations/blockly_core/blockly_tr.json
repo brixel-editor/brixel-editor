@@ -277,5 +277,11 @@
   "VARIABLES_GET_TOOLTIP": "Bu değişkenin değerini döndürür.",
   "VARIABLES_SET": "%1'i %2 olarak ayarla",
   "VARIABLES_SET_CREATE_GET": "'%1' al oluştur",
-  "VARIABLES_SET_TOOLTIP": "Bu değişkeni girdiye eşit olarak ayarlar."
+  "VARIABLES_SET_TOOLTIP": "Bu değişkeni girdiye eşit olarak ayarlar.",
+  "BKY_ESP32CAM_FLIP": "📷 Kamera Ekran Ayarı Tür %1 Etkinleştir %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "Kamera görüntüsünü çevir veya aynala.",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "Dikey Çevirme",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "Yatay Aynalama",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "Açık",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "Kapalı"
 }

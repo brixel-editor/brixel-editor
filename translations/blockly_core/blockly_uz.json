@@ -316,5 +316,11 @@
   "VARIABLES_SET": "%1 ni %2 ga o'rnatish",
   "VARIABLES_SET_CREATE_GET": "'%1 olish' yaratish",
   "VARIABLES_SET_HELPURL": "https://github.com/google/blockly/wiki/Variables#set",
-  "VARIABLES_SET_TOOLTIP": "Bu o'zgaruvchini kirishga teng qilib o'rnatadi."
+  "VARIABLES_SET_TOOLTIP": "Bu o'zgaruvchini kirishga teng qilib o'rnatadi.",
+  "BKY_ESP32CAM_FLIP": "📷 Kamera Ekrani Sozlamasi Tur %1 Yoqish %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "Kamera tasvirini burish yoki ko'zgulash.",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "Vertikal Burish",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "Gorizontal Ko'zgu",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "Yoqish",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "O'chirish"
 }

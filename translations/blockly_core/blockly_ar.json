@@ -316,5 +316,11 @@
   "VARIABLES_SET": "اضبط %1 على %2",
   "VARIABLES_SET_CREATE_GET": "إنشاء 'احصل على %1'",
   "VARIABLES_SET_HELPURL": "https://github.com/google/blockly/wiki/Variables#set",
-  "VARIABLES_SET_TOOLTIP": "يضبط هذا المتغير ليكون مساويًا للمدخل."
+  "VARIABLES_SET_TOOLTIP": "يضبط هذا المتغير ليكون مساويًا للمدخل.",
+  "BKY_ESP32CAM_FLIP": "📷 إعداد شاشة الكاميرا النوع %1 التفعيل %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "قلب أو عينة صورة الكاميرا.",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "قلب عمودي",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "مرآة أفقية",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "تشغيل",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "إيقاف"
 }

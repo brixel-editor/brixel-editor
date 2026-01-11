@@ -316,5 +316,11 @@
   "VARIABLES_SET": "itakda ang %1 sa %2",
   "VARIABLES_SET_CREATE_GET": "Gumawa ng 'get %1'",
   "VARIABLES_SET_HELPURL": "https://github.com/google/blockly/wiki/Variables#set",
-  "VARIABLES_SET_TOOLTIP": "Itinatakda ang variable na ito na maging katumbas ng input."
+  "VARIABLES_SET_TOOLTIP": "Itinatakda ang variable na ito na maging katumbas ng input.",
+  "BKY_ESP32CAM_FLIP": "📷 Setting ng Screen ng Camera Uri %1 Paganahin %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "I-flip o i-mirror ang imahe ng camera.",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "Vertical Flip",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "Horizontal Mirror",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "Buhay",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "Patay"
 }

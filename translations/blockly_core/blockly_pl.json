@@ -320,5 +320,11 @@
   "VARIABLES_SET": "ustaw %1 na %2",
   "VARIABLES_SET_CREATE_GET": "Utwórz 'pobierz %1'",
   "VARIABLES_SET_HELPURL": "https://github.com/google/blockly/wiki/Variables#set",
-  "VARIABLES_SET_TOOLTIP": "Ustawia tę zmienną, aby była równa wejściu."
+  "VARIABLES_SET_TOOLTIP": "Ustawia tę zmienną, aby była równa wejściu.",
+  "BKY_ESP32CAM_FLIP": "📷 Ustawienia Ekranu Kamery Typ %1 Włącz %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "Odwróć lub odbij obraz z kamery.",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "Odbicie Pionowe",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "Odbicie Poziome",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "Wł.",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "Wył."
 }

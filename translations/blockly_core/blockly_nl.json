@@ -316,5 +316,11 @@
   "VARIABLES_SET": "stel %1 in op %2",
   "VARIABLES_SET_CREATE_GET": "Maak 'krijg %1'",
   "VARIABLES_SET_HELPURL": "https://github.com/google/blockly/wiki/Variables#set",
-  "VARIABLES_SET_TOOLTIP": "Stelt deze variabele in om gelijk te zijn aan de invoer."
+  "VARIABLES_SET_TOOLTIP": "Stelt deze variabele in om gelijk te zijn aan de invoer.",
+  "BKY_ESP32CAM_FLIP": "📷 Camerascherm Instelling Type %1 Inschakelen %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "Draai of spiegel het camerabeeld.",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "Verticaal Spiegelen",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "Horizontaal Spiegelen",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "Aan",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "Uit"
 }

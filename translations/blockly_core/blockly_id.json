@@ -316,5 +316,11 @@
   "VARIABLES_SET": "atur %1 menjadi %2",
   "VARIABLES_SET_CREATE_GET": "Buat 'ambil %1'",
   "VARIABLES_SET_HELPURL": "https://github.com/google/blockly/wiki/Variables#set",
-  "VARIABLES_SET_TOOLTIP": "Mengatur variabel ini agar sama dengan input."
+  "VARIABLES_SET_TOOLTIP": "Mengatur variabel ini agar sama dengan input.",
+  "BKY_ESP32CAM_FLIP": "📷 Pengaturan Layar Kamera Tipe %1 Aktifkan %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "Balik atau cerminkan gambar kamera.",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "Balik Vertikal",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "Cermin Horizontal",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "Hidup",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "Mati"
 }

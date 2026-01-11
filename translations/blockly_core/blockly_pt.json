@@ -277,5 +277,11 @@
   "VARIABLES_GET_TOOLTIP": "Retorna o valor desta variável.",
   "VARIABLES_SET": "definir %1 para %2",
   "VARIABLES_SET_CREATE_GET": "Criar 'obter %1'",
-  "VARIABLES_SET_TOOLTIP": "Define esta variável para ser igual à entrada."
+  "VARIABLES_SET_TOOLTIP": "Define esta variável para ser igual à entrada.",
+  "BKY_ESP32CAM_FLIP": "📷 Configuração da Tela da Câmera Tipo %1 Ativar %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "Inverter ou espelhar a imagem da câmera.",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "Inversão Vertical",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "Espelho Horizontal",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "Ligado",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "Desligado"
 }

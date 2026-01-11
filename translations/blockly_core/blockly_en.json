@@ -320,5 +320,11 @@
   "VARIABLES_SET": "set %1 to %2",
   "VARIABLES_SET_CREATE_GET": "Create 'get %1'",
   "VARIABLES_SET_HELPURL": "https://github.com/google/blockly/wiki/Variables#set",
-  "VARIABLES_SET_TOOLTIP": "Sets this variable to be equal to the input."
+  "VARIABLES_SET_TOOLTIP": "Sets this variable to be equal to the input.",
+  "BKY_ESP32CAM_FLIP": "📷 Camera Screen Setting Type %1 Enable %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "Flip or mirror the camera image.",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "Vertical Flip",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "Horizontal Mirror",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "On",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "Off"
 }

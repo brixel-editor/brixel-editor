@@ -316,5 +316,11 @@
   "VARIABLES_SET": "imposta %1 a %2",
   "VARIABLES_SET_CREATE_GET": "Crea 'ottieni %1'",
   "VARIABLES_SET_HELPURL": "https://github.com/google/blockly/wiki/Variables#set",
-  "VARIABLES_SET_TOOLTIP": "Imposta questa variabile uguale all'input."
+  "VARIABLES_SET_TOOLTIP": "Imposta questa variabile uguale all'input.",
+  "BKY_ESP32CAM_FLIP": "📷 Impostazione Schermo Fotocamera Tipo %1 Abilita %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "Capovolgi o specchia l'immagine della fotocamera.",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "Capovolgimento Verticale",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "Specchio Orizzontale",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "On",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "Off"
 }

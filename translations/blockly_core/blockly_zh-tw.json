@@ -253,5 +253,11 @@
   "BKY_FND_TM1637_SET_SEGMENTS": "🔟FND %1: 直接控制七段顯示器 (資料: %2, 起始位置: %3)",
   "BKY_FND_TM1637_SET_SEGMENTS_TOOLTIP": "直接控制每個七段顯示器以建立所需的字元或形狀。以 '0x3f, 0x06' 格式輸入資料。",
   "BKY_FND_TM1637_ENCODE_DIGIT": "🔟數字/十六進位 %1 的七段顯示器值",
-  "BKY_FND_TM1637_ENCODE_DIGIT_TOOLTIP": "將數字 (0-15) 轉換為7段顯示器資料 (例如：0x3f)。10~15 對應 A~F。"
+  "BKY_FND_TM1637_ENCODE_DIGIT_TOOLTIP": "將數字 (0-15) 轉換為7段顯示器資料 (例如：0x3f)。10~15 對應 A~F。",
+  "BKY_ESP32CAM_FLIP": "📷 相機畫面設定 類型 %1 啟用 %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "翻轉或鏡像相機影像。",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "垂直翻轉",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "水平鏡像",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "開啟",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "關閉"
 }

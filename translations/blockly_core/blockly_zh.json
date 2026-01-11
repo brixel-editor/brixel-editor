@@ -292,5 +292,11 @@
   "VARIABLES_GET_TOOLTIP": "返回此变量的值。",
   "VARIABLES_SET": "设置%1到%2",
   "VARIABLES_SET_CREATE_GET": "创建“获取%1”",
-  "VARIABLES_SET_TOOLTIP": "设置此变量等于输入。"
+  "VARIABLES_SET_TOOLTIP": "设置此变量等于输入。",
+  "BKY_ESP32CAM_FLIP": "📷 相机屏幕设置 类型 %1 启用 %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "翻转或镜像相机图像。",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "垂直翻转",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "水平镜像",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "开启",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "关闭"
 }

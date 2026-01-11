@@ -292,5 +292,11 @@
   "VARIABLES_GET_TOOLTIP": "この変数の値を返します。",
   "VARIABLES_SET": "%1 を %2 に設定",
   "VARIABLES_SET_CREATE_GET": "'%1を取得' を作成",
-  "VARIABLES_SET_TOOLTIP": "この変数を入力と等しく設定します。"
+  "VARIABLES_SET_TOOLTIP": "この変数を入力と等しく設定します。",
+  "BKY_ESP32CAM_FLIP": "📷 カメラ画面設定 タイプ %1 有効化 %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "カメラ画像を反転または鏡像にします。",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "垂直反転",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "水平鏡像",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "オン",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "オフ"
 }

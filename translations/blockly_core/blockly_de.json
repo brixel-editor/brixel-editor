@@ -316,5 +316,11 @@
   "VARIABLES_SET": "setze %1 auf %2",
   "VARIABLES_SET_CREATE_GET": "Erstelle „hole %1“",
   "VARIABLES_SET_HELPURL": "https://github.com/google/blockly/wiki/Variables#set",
-  "VARIABLES_SET_TOOLTIP": "Setzt diese Variable so, dass sie gleich der Eingabe ist."
+  "VARIABLES_SET_TOOLTIP": "Setzt diese Variable so, dass sie gleich der Eingabe ist.",
+  "BKY_ESP32CAM_FLIP": "📷 Kamerabildschirmeinstellung Typ %1 Aktivieren %2",
+  "BKY_ESP32CAM_FLIP_TOOLTIP": "Kamerabild spiegeln oder umdrehen.",
+  "BKY_ESP32CAM_FLIP_TYPE_VFLIP": "Vertikal spiegeln",
+  "BKY_ESP32CAM_FLIP_TYPE_HMIRROR": "Horizontal spiegeln",
+  "BKY_ESP32CAM_FLIP_ENABLE_ON": "An",
+  "BKY_ESP32CAM_FLIP_ENABLE_OFF": "Aus"
 }
