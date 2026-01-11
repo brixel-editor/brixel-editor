@@ -6081,6 +6081,23 @@ Arduino.forBlock['esp32cam_setup'] = function (block, generator) {
   return code;
 };
 
+// 5. 카메라 화면 설정 (상하반전/좌우거울)
+Arduino.forBlock['esp32cam_flip'] = function (block, generator) {
+  var type = block.getFieldValue('TYPE'); // "vflip" or "hmirror"
+  var enable = block.getFieldValue('ENABLE'); // "1" or "0"
+
+  // Generate code to get sensor and set option
+  var code = `
+  {
+    sensor_t * s = esp_camera_sensor_get();
+    if (s != NULL) {
+      s->set_${type}(s, ${enable});
+    }
+  }
+`;
+  return code;
+};
+
 // 5. UDP 영상 전송 (loop 안에 배치)
 Arduino.forBlock['esp32cam_loop'] = function (block, generator) {
   var code = `

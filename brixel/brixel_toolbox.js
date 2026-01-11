@@ -865,6 +865,8 @@ function generateToolbox(boardType = 'uno') {
                 <value name="CONTRAST"><shadow type="math_number"><field name="NUM">1</field></shadow></value>
                 <value name="SATURATION"><shadow type="math_number"><field name="NUM">1</field></shadow></value>
             </block>
+            <sep gap="10"></sep>
+            <block type="esp32cam_flip"></block>
             <sep gap="30"></sep>
             <label text="${Blockly.Msg.BKY_ESP32CAM_LABEL_CAMERA || '📷 카메라'}"></label>
             <sep gap="10"></sep>

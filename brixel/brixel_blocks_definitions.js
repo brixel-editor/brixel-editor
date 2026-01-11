@@ -6156,6 +6156,39 @@ Blockly.Blocks['esp32cam_setup'] = {
     }
 };
 
+// 5. 카메라 화면 설정 (상하반전/좌우거울)
+Blockly.Blocks['esp32cam_flip'] = {
+    init: function () {
+        this.jsonInit({
+            "type": "esp32cam_flip",
+            "message0": Blockly.Msg.BKY_ESP32CAM_FLIP || "📷 카메라 화면 설정 구분 %1 동작 %2",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "TYPE",
+                    "options": [
+                        [Blockly.Msg.BKY_ESP32CAM_FLIP_TYPE_VFLIP || "상하반전 (Vertical Flip)", "vflip"],
+                        [Blockly.Msg.BKY_ESP32CAM_FLIP_TYPE_HMIRROR || "좌우거울 (Horizontal Mirror)", "hmirror"]
+                    ]
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "ENABLE",
+                    "options": [
+                        [Blockly.Msg.BKY_ESP32CAM_FLIP_ENABLE_ON || "켜기 (On)", "1"],
+                        [Blockly.Msg.BKY_ESP32CAM_FLIP_ENABLE_OFF || "끄기 (Off)", "0"]
+                    ]
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": "#367E7F",
+            "tooltip": Blockly.Msg.BKY_ESP32CAM_FLIP_TOOLTIP || "카메라 화면을 상하 반전하거나 좌우 거울모드로 설정합니다.",
+            "helpUrl": ""
+        });
+    }
+};
+
 // 5. UDP 영상 전송 블록
 Blockly.Blocks['esp32cam_loop'] = {
     init: function () {
