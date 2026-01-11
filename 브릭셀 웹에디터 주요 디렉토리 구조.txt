@@ -1,0 +1,86 @@
+ 📁 주요 디렉토리 구조
+
+  Blockcoding_WebIDE_Project_V19_ESP32_board/
+  │
+  ├── README.md                    # 프로젝트 소개 및 가이드 (NEW!)
+  ├── index.html                   # 메인 웹 IDE
+  ├── ide-styles.css               # IDE 스타일
+  ├── popup-config.json            # 팝업 설정
+  │
+  ├── brixel/                      # 블록 및 코드 생성 엔진
+  │   ├── brixel_core.js           # Arduino 코드 생성기 핵심
+  │   ├── brixel_blocks_definitions.js    # 블록 정의 (다국어 지원)
+  │   ├── brixel_blocks_code_generators.js # 블록→코드 변환 (자동 로마자 변환 포함)
+  │   ├── brixel_toolbox.js        # 툴박스 구성
+  │   ├── brixel_assembly_recorder.js # 조립 기록 시스템
+  │   └── brixel_utils.js          # 블록 관련 유틸리티
+  │
+  ├── js/                          # IDE 메인 로직
+  │   ├── ide-core.js              # IDE 메인 컨트롤러 (정적 서비스용)
+  │   ├── ide-editors.js           # Blockly + Monaco 에디터 통합
+  │   ├── ide-server-comm.js       # PC 에이전트 통신 (WebSocket/HTTP)
+  │   ├── ide-file-manager.js      # 파일 저장/불러오기
+  │   ├── ide-i18n.js              # 다국어 처리 로직
+  │   └── ide-utils.js             # 유틸리티 (로마자 변환, 로그 등)
+  │
+  ├── pc_agent/                    # Electron 기반 로컬 에이전트
+  │   ├── arduino-agent.js         # Electron 메인 프로세스
+  │   ├── agent-core.js            # Express 서버, 컴파일/업로드 엔진
+  │   ├── renderer.js              # 에이전트 UI 렌더러
+  │   ├── package.json             # 에이전트 설정 및 의존성
+  │   └── resources/               # Arduino CLI, 라이브러리, 도구 포함
+  │
+  ├── translations/                # 다국어 번역 파일
+  │   ├── blockly_core/            # Blockly 코어 번역
+  │   └── ui_i18n/                 # UI 및 커스텀 블록 번역
+  │
+  ├── guide/                       # 사용자 가이드 문서
+  ├── download_agent/              # PC 에이전트 배포 파일
+  └── reference/                   # 참고 자료 및 백업
+
+
+ 🛠️ 기술 스택
+
+  프론트엔드:
+  - Blockly 12.2.0 (블록 프로그래밍)
+  - Monaco Editor 0.34.0 (VS Code 기반 텍스트 에디터)
+  - Vanilla JavaScript ES6+ (모듈화 구조)
+
+  백엔드 (PC 에이전트):
+  - Node.js + Electron
+  - Express (HTTP REST API)
+  - WebSocket (실시간 상태 통신)
+  - serialport (아두이노/ESP32 시리얼 통신)
+  - Arduino CLI (크로스 플랫폼 컴파일/업로드)
+
+  ⚙️ 주요 기능
+
+  1. 블록 프로그래밍: Blockly 기반 비주얼 코딩, 직관적인 UI
+  2. 스마트 코드 생성: 
+     - 블록 → C++ 코드 자동 변환
+     - **한글 변수명 자동 로마자 변환 지원 (NEW)**
+  3. 강력한 하드웨어 호환성: 
+     - Arduino, ESP32, Raspberry Pi Pico 등 다중 보드 지원
+     - 100종 이상의 입출력 장치/센서 블록 기본 내장
+  4. ESP32-CAM 지원: 카메라 설정, 웹 스트리밍, 영상 처리 블록 내장
+  5. 컴파일/업로드: 로컬 에이전트를 통한 원클릭 펌웨어 플래싱
+  6. 사용자 편의:
+     - 사라진 블록 자동 감지 및 알림 (Red Block Alert)
+     - 블록 조립 과정 자동 기록 (Assembly Record)
+  7. 다국어 지원: 글로벌 교육 환경을 위한 다국어 시스템
+
+  🔄 통신 구조
+
+  웹 브라우저 (index.html)
+      ↕ HTTP (명령) / WebSocket (상태/로그)
+  PC 에이전트 (Electron/Node.js)
+      ↕ Serial/USB (COM 포트)
+  마이크로컨트롤러 (Arduino, ESP32, Pico)
+
+  📊 핵심 파일/위치
+
+  - index.html - IDE 진입점
+  - README.md - 프로젝트 가이드
+  - brixel/brixel_blocks_code_generators.js - 코드 생성 및 변환 로직
+  - js/ide-utils.js - 로마자 변환 등 핵심 유틸리티
+  - pc_agent/agent-core.js - 하드웨어 제어 핵심 엔진
