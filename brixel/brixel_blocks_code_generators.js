@@ -4998,32 +4998,72 @@ Arduino.forBlock['ir_setup'] = function (block, generator) {
   generator.definitions_['include_irremote'] = '#include <IRremote.hpp>';
   generator.definitions_['include_irread'] = '#include <IRread.h>';
 
-  const code = 'IrReceiver.begin(' + pin + ', ENABLE_LED_FEEDBACK);\n';
-  return code;
+  // IR 수신 관련 전역 변수 선언
+  generator.definitions_['ir_vars'] =
+    'uint32_t _ir_last_command = 0;\n' +
+    'bool _ir_data_available = false;';
+
+  // setup()에서 IR 수신기 초기화
+  generator.setups_['ir_begin'] = 'IrReceiver.begin(' + pin + ', ENABLE_LED_FEEDBACK);';
+
+  return '';
 };
 
-// IR 신호 수신 확인
+// IR 신호 수신 확인 (논블로킹 방식)
 Arduino.forBlock['ir_available'] = function (block, generator) {
-  const code = 'IrReceiver.decode()';
+  // loop()에서 IR 데이터 폴링하는 코드 추가
+  generator.loops_['ir_poll'] =
+    'if (IrReceiver.decode()) {\n' +
+    '    _ir_last_command = IrReceiver.decodedIRData.command;\n' +
+    '    _ir_data_available = true;\n' +
+    '    IrReceiver.resume();\n' +
+    '  }';
+
+  const code = '_ir_data_available';
   return [code, Arduino.ORDER_ATOMIC];
 };
 
 // IR 버튼 번호 읽기
 Arduino.forBlock['ir_read_button'] = function (block, generator) {
-  const code = '(IrReceiver.decode() ? (IrReceiver.resume(), readIR(IrReceiver.decodedIRData.decodedRawData)) : -1)';
+  // loop()에서 IR 데이터 폴링하는 코드 추가
+  generator.loops_['ir_poll'] =
+    'if (IrReceiver.decode()) {\n' +
+    '    _ir_last_command = IrReceiver.decodedIRData.command;\n' +
+    '    _ir_data_available = true;\n' +
+    '    IrReceiver.resume();\n' +
+    '  }';
+
+  const code = '(_ir_data_available ? (_ir_data_available = false, readIR(_ir_last_command)) : -1)';
   return [code, Arduino.ORDER_ATOMIC];
 };
 
-// IR 원본 코드값 읽기
+// IR 원본 코드값 읽기 (command 값 반환)
 Arduino.forBlock['ir_read_raw'] = function (block, generator) {
-  const code = '(IrReceiver.decode() ? (IrReceiver.resume(), IrReceiver.decodedIRData.decodedRawData) : 0)';
+  // loop()에서 IR 데이터 폴링하는 코드 추가
+  generator.loops_['ir_poll'] =
+    'if (IrReceiver.decode()) {\n' +
+    '    _ir_last_command = IrReceiver.decodedIRData.command;\n' +
+    '    _ir_data_available = true;\n' +
+    '    IrReceiver.resume();\n' +
+    '  }';
+
+  const code = '(_ir_data_available ? (_ir_data_available = false, _ir_last_command) : 0)';
   return [code, Arduino.ORDER_ATOMIC];
 };
 
 // IR 특정 버튼 확인
 Arduino.forBlock['ir_button_is'] = function (block, generator) {
   const button = block.getFieldValue('BUTTON');
-  const code = '(IrReceiver.decode() ? (IrReceiver.resume(), readIR(IrReceiver.decodedIRData.decodedRawData) == ' + button + ') : false)';
+
+  // loop()에서 IR 데이터 폴링하는 코드 추가
+  generator.loops_['ir_poll'] =
+    'if (IrReceiver.decode()) {\n' +
+    '    _ir_last_command = IrReceiver.decodedIRData.command;\n' +
+    '    _ir_data_available = true;\n' +
+    '    IrReceiver.resume();\n' +
+    '  }';
+
+  const code = '(_ir_data_available ? (_ir_data_available = false, readIR(_ir_last_command) == ' + button + ') : false)';
   return [code, Arduino.ORDER_ATOMIC];
 };
 
